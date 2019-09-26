@@ -1,0 +1,14 @@
+{
+    "name": "cjdennis/mac-address",
+    "description": "Get a MAC address from the system",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"CjDennis\\MacAddress\\": "src/CjDennis/MacAddress/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"CjDennis\\MacAddress\\": "tests/unit/CjDennis/MacAddress/"}
+    }
+}
