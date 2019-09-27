@@ -156,4 +156,8 @@ OUTPUT
   public function testShouldOutputAFormattedMacAddressFromABinaryString() {
     $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::format("123Ad64bC5eF"));
   }
+
+  public function testShouldOutputAFormattedMacAddressFromABinaryStringWithACustomDelimiter() {
+    $this->assertSame('12:3A:D6:4B:C5:EF', MacAddress::format('123Ad64bC5eF', ':'));
+  }
 }
