@@ -39,12 +39,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CJDennis/random.git",
-                "reference": "aec10828b00f1956c6dd8a0e1c77b383016ddf0a"
+                "reference": "9645a880acb93cb13c3551754962750decf30541"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CJDennis/random/zipball/aec10828b00f1956c6dd8a0e1c77b383016ddf0a",
-                "reference": "aec10828b00f1956c6dd8a0e1c77b383016ddf0a",
+                "url": "https://api.github.com/repos/CJDennis/random/zipball/9645a880acb93cb13c3551754962750decf30541",
+                "reference": "9645a880acb93cb13c3551754962750decf30541",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "MIT"
             ],
             "description": "Formatted random number generator",
-            "time": "2019-09-23T22:59:11+00:00"
+            "time": "2019-09-27T13:18:10+00:00"
         }
     ],
     "packages-dev": [],
