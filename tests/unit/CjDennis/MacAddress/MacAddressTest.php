@@ -166,4 +166,10 @@ OUTPUT
       MacAddress::format('123Ad64bC5eF', '');
     });
   }
+
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAMultipleCharacterDelimiter() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG), function () {
+      MacAddress::format('123Ad64bC5eF', '::');
+    });
+  }
 }
