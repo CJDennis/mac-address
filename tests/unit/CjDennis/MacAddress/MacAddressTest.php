@@ -111,4 +111,8 @@ OUTPUT
   public function testShouldValidateAStringMacAddress() {
     $this->assertTrue(MacAddress::is_valid('12-3A-D6-4B-C5-EF'));
   }
+
+  public function testShouldNotValidateAStringMacAddressNotInPairsOfHexDigits() {
+    $this->assertFalse(MacAddress::is_valid('12-3A-D6-4BC-5-EF'));
+  }
 }
