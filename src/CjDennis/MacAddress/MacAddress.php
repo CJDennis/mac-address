@@ -77,7 +77,14 @@ class MacAddress {
   }
 
   protected static function strip(string $mac_address) {
+    static::validate($mac_address);
     $mac_address = preg_replace('/[^\da-f]/i', '', $mac_address);
     return $mac_address;
+  }
+
+  protected static function validate(string $mac_address) {
+    if (!static::is_valid($mac_address)) {
+      throw MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS);
+    }
   }
 }

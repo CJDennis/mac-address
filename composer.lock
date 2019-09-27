@@ -4,8 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ea9edc5ec1bff5c224d1dc07a8f8421",
+    "content-hash": "47e521c4b37a5529aa036db9471365b3",
     "packages": [
+        {
+            "name": "cjdennis/message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CJDennis/message.git",
+                "reference": "832c9226094f87ce020205d4520d6db48cb7d743"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CJDennis/message/zipball/832c9226094f87ce020205d4520d6db48cb7d743",
+                "reference": "832c9226094f87ce020205d4520d6db48cb7d743",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CjDennis\\Message\\": "src/CjDennis/Message/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Mandatory error code exceptions",
+            "time": "2019-09-23T21:41:15+00:00"
+        },
         {
             "name": "cjdennis/random",
             "version": "dev-master",
@@ -41,7 +68,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cjdennis/random": 20
+        "cjdennis/random": 20,
+        "cjdennis/message": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
