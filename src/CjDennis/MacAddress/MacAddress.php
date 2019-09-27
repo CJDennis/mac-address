@@ -6,6 +6,7 @@ use CjDennis\Random\Random;
 class MacAddress {
   const COMMANDS = [
     'WIN' => ['identifier' => '/^(Win).*/i', 'command' => 'getmac /nh', 'search' => '/^(.{17}) {3}\S+$/'],
+    'LINUX' => ['identifier' => '/^(Linux).*/i', 'command' => 'ifconfig', 'search' => '/^.* HWaddr (\S+)$/'],
   ];
 
   protected static $mac_address;
