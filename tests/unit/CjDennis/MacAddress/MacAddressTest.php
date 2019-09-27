@@ -108,11 +108,7 @@ OUTPUT
     $this->assertSame('9a:fa:c9:2d:40:a8', $mac_address_mac_os_mock->mac_address_hex());
   }
 
-  public function testShouldValidateAStringMacAddress() {
-    $this->assertTrue(MacAddress::is_valid('12-3A-D6-4B-C5-EF'));
-  }
-
-  public function testShouldOutputABinaryMacAddress() {
+  public function testShouldOutputABinaryMacAddressFromAString() {
     $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddress::binary('12-3A-D6-4B-C5-EF'));
   }
 
@@ -128,8 +124,8 @@ OUTPUT
     });
   }
 
-  public function testShouldValidateAStringMacAddressWithPairsOfHexDigits() {
-    $this->assertTrue(MacAddressSeam::is_valid('  12-  *3a: :D6  4Bc5-Ef   '));
+  public function testShouldOutputABinaryMacAddressFromAStringMacAddressWithPairsOfHexDigits() {
+    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddressSeam::binary('  12-  *3a: :D6  4Bc5-Ef   '));
   }
 
   public function testShouldVerifyAMacAddressIsUnicast() {
