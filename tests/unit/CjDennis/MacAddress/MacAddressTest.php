@@ -172,4 +172,10 @@ OUTPUT
       MacAddress::format('123Ad64bC5eF', '::');
     });
   }
+
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAWhitespaceDelimiter() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE), function () {
+      MacAddress::format('123Ad64bC5eF', ' ');
+    });
+  }
 }
