@@ -86,7 +86,7 @@ class MacAddress {
     }
   }
 
-  public static function is_valid($mac_address) {
+  protected static function is_valid($mac_address) {
     $is_valid = false;
     if (preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address)) {
       $is_valid = true;
