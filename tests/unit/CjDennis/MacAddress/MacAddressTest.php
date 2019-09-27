@@ -139,8 +139,10 @@ OUTPUT
   public function testShouldOutputAHexMacAddressFromABinaryString() {
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
-  //
-  //public function testShouldOutputAHexMacAddressFromABinaryString() {
-  //  $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
-  //}
+
+  public function testShouldThrowAnExceptionWhenPassedABinaryStringShorterThanSixBytes() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
+      MacAddress::hex("\x12\x3A\xD6\x4B\xC5");
+    });
+  }
 }
