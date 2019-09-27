@@ -119,4 +119,8 @@ OUTPUT
   public function testShouldNotValidateAStringMacAddressWithNonHexAlphanumericCharacters() {
     $this->assertFalse(MacAddressSeam::is_valid('12-3A-D6-4B-C5-EG'));
   }
+
+  public function testShouldValidateAStringMacAddressWithPairsOfHexDigits() {
+    $this->assertTrue(MacAddressSeam::is_valid('  12-  *3a: :D6  4Bc5-Ef   '));
+  }
 }
