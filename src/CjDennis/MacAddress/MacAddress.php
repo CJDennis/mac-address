@@ -71,7 +71,13 @@ class MacAddress {
     return $is_valid;
   }
 
-  public static function is_unicast(string $string) {
-    return true;
+  public static function is_unicast(string $mac_address) {
+    $mac_address = static::strip($mac_address);
+    return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
+  }
+
+  protected static function strip(string $mac_address) {
+    $mac_address = preg_replace('/[^\da-f]/i', '', $mac_address);
+    return $mac_address;
   }
 }
