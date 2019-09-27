@@ -63,6 +63,12 @@ class MacAddress {
     return php_uname('s');
   }
 
+  public static function binary($mac_address) {
+    static::validate($mac_address);
+    $mac_address = preg_replace('/[^\dA-F]/i', '', $mac_address);
+    return hex2bin($mac_address);
+  }
+
   public static function is_unicast(string $mac_address) {
     $mac_address = static::strip($mac_address);
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
