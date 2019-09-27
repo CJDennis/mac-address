@@ -160,4 +160,10 @@ OUTPUT
   public function testShouldOutputAFormattedMacAddressFromABinaryStringWithACustomDelimiter() {
     $this->assertSame('12:3A:D6:4B:C5:EF', MacAddress::format('123Ad64bC5eF', ':'));
   }
+
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithABlankDelimiter() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::BLANK_DELIMITER), function () {
+      MacAddress::format('123Ad64bC5eF', '');
+    });
+  }
 }
