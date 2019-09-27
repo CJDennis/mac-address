@@ -107,4 +107,8 @@ OUTPUT
     );
     $this->assertSame('9a:fa:c9:2d:40:a8', $mac_address_mac_os_mock->mac_address_hex());
   }
+
+  public function testShouldValidateAStringMacAddress() {
+    $this->assertTrue(MacAddress::is_valid('12-3A-D6-4B-C5-EF'));
+  }
 }
