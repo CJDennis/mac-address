@@ -1,9 +1,13 @@
-<?php
+<?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace CjDennis\MacAddress;
 
 use CjDennis\Random\Random;
 
 class MacAddress {
+  const COMMANDS = [
+    'WIN' => ['identifier' => '/^(Win).*/i', 'command' => 'getmac /nh', 'search' => '/^(.{17}) {3}\S+$/'],
+  ];
+
   protected static $mac_address;
   protected static $fake_mac_address;
 
@@ -30,9 +34,30 @@ class MacAddress {
   }
 
   protected static function system_mac_addresses() {
-    // TODO: Windows only! Universal method needed, or faker if none available
-    exec('getmac /nh', $output, $return_code);
-    $connected_mac_addresses = array_values(preg_grep('/^(.{17}) {3}(\S+)$/', $output));
+    $operating_system_type = static::operating_system();
+    $output = static::system_output_lines($operating_system_type);
+
+    $connected_mac_addresses = array_values(preg_grep(static::COMMANDS[$operating_system_type]['search'], $output));
+    $connected_mac_addresses = preg_replace(static::COMMANDS[$operating_system_type]['search'], '$1', $connected_mac_addresses);
+
     return $connected_mac_addresses;
+  }
+
+  protected static function system_output_lines(string $operating_system_type) {
+    exec(static::COMMANDS[$operating_system_type]['command'], $output, $return_code);
+    return $output;
+  }
+
+  protected static function operating_system() {
+    $operating_system_type = static::os_name();
+    $identifiers = array_map(function ($item) {
+      return $item['identifier'];
+    }, static::COMMANDS);
+    $operating_system_type = preg_replace($identifiers, '$1', $operating_system_type);
+    return strtoupper($operating_system_type);
+  }
+
+  protected static function os_name() {
+    return php_uname('s');
   }
 }
