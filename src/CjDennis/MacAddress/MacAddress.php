@@ -119,7 +119,7 @@ class MacAddress {
     if (preg_match('/\s/', $delimiter)) {
       throw MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE);
     }
-    if (preg_match('/\d/', $delimiter)) {
+    if (preg_match('/\w/', $delimiter)) {
       throw MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC);
     }
   }
