@@ -93,4 +93,8 @@ class MacAddress {
     }
     return $is_valid;
   }
+
+  public static function hex($mac_address) {
+    return strtoupper(bin2hex($mac_address));
+  }
 }
