@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUndefinedClassInspection */
+<?php
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
 namespace CjDennis\MacAddress;
 
 use Codeception\Test\Unit;
@@ -137,7 +139,6 @@ OUTPUT
   }
 
   public function testShouldOutputAHexMacAddressFromABinaryString() {
-    /** @noinspection PhpUnhandledExceptionInspection */
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
 
