@@ -185,4 +185,10 @@ OUTPUT
       MacAddress::format('123Ad64bC5eF', '9');
     });
   }
+
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAnAlphabeticDelimiter() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
+      MacAddress::format('123Ad64bC5eF', 'x');
+    });
+  }
 }
