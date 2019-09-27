@@ -123,4 +123,8 @@ OUTPUT
   public function testShouldValidateAStringMacAddressWithPairsOfHexDigits() {
     $this->assertTrue(MacAddressSeam::is_valid('  12-  *3a: :D6  4Bc5-Ef   '));
   }
+
+  public function testShouldVerifyAMacAddressIsUnicast() {
+    $this->assertTrue(MacAddressSeam::is_unicast('F0-FF-FF-FF-FF-FF'));
+  }
 }
