@@ -137,6 +137,7 @@ OUTPUT
   }
 
   public function testShouldOutputAHexMacAddressFromABinaryString() {
+    /** @noinspection PhpUnhandledExceptionInspection */
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
 
@@ -150,5 +151,9 @@ OUTPUT
     $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
       MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF\x79");
     });
+  }
+  
+  public function testShouldOutputAFormattedMacAddressFromABinaryString() {
+    $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::format("123Ad64bC5eF"));
   }
 }
