@@ -113,11 +113,15 @@ OUTPUT
   }
 
   public function testShouldNotValidateAStringMacAddressNotInPairsOfHexDigits() {
-    $this->assertFalse(MacAddress::is_valid('12-3A-D6-4BC-5-EF'));
+    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
+      MacAddress::is_unicast('12-3A-D6-4BC-5-EF');
+    });
   }
 
   public function testShouldNotValidateAStringMacAddressWithNonHexAlphanumericCharacters() {
-    $this->assertFalse(MacAddressSeam::is_valid('12-3A-D6-4B-C5-EG'));
+    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
+      MacAddress::is_unicast('12-3A-D6-4B-C5-EG');
+    });
   }
 
   public function testShouldValidateAStringMacAddressWithPairsOfHexDigits() {
