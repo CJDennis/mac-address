@@ -9,6 +9,7 @@ class MacAddressException extends MessageException {
   const DELIMITER_BLANK = 0x03;
   const DELIMITER_TOO_LONG = 0x04;
   const DELIMITER_WHITESPACE = 0x05;
+  const DELIMITER_ALPHANUMERIC = 0x06;
 
   const MESSAGE = [
     self::INVALID_MAC_ADDRESS => 'The MAC address is invalid',
@@ -16,5 +17,6 @@ class MacAddressException extends MessageException {
     self::DELIMITER_BLANK => 'The delimiter must not be blank',
     self::DELIMITER_TOO_LONG => 'The delimiter must be a single character',
     self::DELIMITER_WHITESPACE => 'The delimiter must not be whitespace',
+    self::DELIMITER_ALPHANUMERIC => 'The delimiter must not be alphanumeric',
   ];
 }

@@ -181,7 +181,7 @@ OUTPUT
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithANumericDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUM), function () {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
       MacAddress::format('123Ad64bC5eF', '9');
     });
   }
