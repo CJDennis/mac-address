@@ -70,4 +70,8 @@ class MacAddress {
     }
     return $is_valid;
   }
+
+  public static function is_unicast(string $string) {
+    return true;
+  }
 }
