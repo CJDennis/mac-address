@@ -19,7 +19,12 @@ class MacAddress {
     if (static::$mac_address === null) {
       $connected_mac_addresses = static::system_mac_addresses();
 
-      static::$mac_address = substr($connected_mac_addresses[0], 0, 17);
+      if (!$connected_mac_addresses) {
+        static::$mac_address = static::fake_mac_address_hex();
+      }
+      else {
+        static::$mac_address = substr($connected_mac_addresses[0], 0, 17);
+      }
     }
     return static::$mac_address;
   }
