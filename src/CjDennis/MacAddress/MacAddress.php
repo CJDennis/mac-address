@@ -104,7 +104,7 @@ class MacAddress {
     return strtoupper(bin2hex($mac_address));
   }
 
-  public static function format($mac_address) {
-    return join('-', str_split(strtoupper($mac_address), 2));
+  public static function format($mac_address, $delimiter = '-') {
+    return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
 }
