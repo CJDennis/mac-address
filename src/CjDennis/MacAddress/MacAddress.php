@@ -62,4 +62,8 @@ class MacAddress {
   protected static function os_name() {
     return php_uname('s');
   }
+
+  public static function is_valid($mac_address) {
+    return true;
+  }
 }
