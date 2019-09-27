@@ -105,6 +105,11 @@ class MacAddress {
   }
 
   public static function format($mac_address, $delimiter = '-') {
+    static::validate_delimiter($delimiter);
+    return join($delimiter, str_split(strtoupper($mac_address), 2));
+  }
+
+  protected static function validate_delimiter($delimiter): void {
     if (strlen($delimiter) === 0) {
       throw MacAddressException::new(MacAddressException::DELIMITER_BLANK);
     }
@@ -114,6 +119,5 @@ class MacAddress {
     if (preg_match('/\s/', $delimiter)) {
       throw MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE);
     }
-    return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
 }
