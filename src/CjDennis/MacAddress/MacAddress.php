@@ -95,6 +95,9 @@ class MacAddress {
   }
 
   public static function hex($mac_address) {
+    if (strlen($mac_address) < 6) {
+      throw MacAddressException::new(MacAddressException::INVALID_BINARY_STRING);
+    }
     return strtoupper(bin2hex($mac_address));
   }
 }
