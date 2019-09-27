@@ -111,6 +111,9 @@ class MacAddress {
     if (strlen($delimiter) > 1) {
       throw MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG);
     }
+    if (preg_match('/\s/', $delimiter)) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE);
+    }
     return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
 }
