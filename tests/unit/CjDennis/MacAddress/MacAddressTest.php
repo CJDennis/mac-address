@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedClassInspection */
 namespace CjDennis\MacAddress;
 
 use Codeception\Test\Unit;
@@ -40,6 +40,7 @@ class MacAddressTest extends Unit {
 
   public function testShouldGetAWindowsMacAddressFromTheMocker() {
     $mac_address_windows_mock = new MacAddressWindowsMock();
+    /** @noinspection SpellCheckingInspection */
     $mac_address_windows_mock->output(<<<OUTPUT
 
 65-67-CD-05-F7-DC   Media disconnected
@@ -51,5 +52,32 @@ C9-7C-8E-0C-9A-A5   \Device\Tcpip_{1DCC5F79-E47D-40CC-B002-ED81C7F4160E}
 OUTPUT
     );
     $this->assertSame('4D-40-9E-D8-71-03', $mac_address_windows_mock->mac_address_hex());
+  }
+
+  public function testShouldGetALinuxMacAddressFromTheMocker() {
+    $mac_address_linux_mock = new MacAddressLinuxMock;
+    /** @noinspection SpellCheckingInspection */
+    $mac_address_linux_mock->output(<<<OUTPUT
+eth0      Link encap:Ethernet  HWaddr 9a:fa:c9:2d:40:a8
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:febb:9737/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:277 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:245 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:23761 (23.7 KB)  TX bytes:36705 (36.7 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+OUTPUT
+    );
+    $this->assertSame('9a:fa:c9:2d:40:a8', ($mac_address_linux_mock)->mac_address_hex());
   }
 }
