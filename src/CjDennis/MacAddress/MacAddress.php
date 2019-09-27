@@ -105,8 +105,9 @@ class MacAddress {
   }
 
   public static function format($mac_address, $delimiter = '-') {
-    if (strlen($delimiter)===0)
+    if (strlen($delimiter) === 0) {
       throw MacAddressException::new(MacAddressException::BLANK_DELIMITER);
+    }
     return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
 }
