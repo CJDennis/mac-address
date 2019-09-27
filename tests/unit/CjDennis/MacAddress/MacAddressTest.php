@@ -112,6 +112,10 @@ OUTPUT
     $this->assertTrue(MacAddress::is_valid('12-3A-D6-4B-C5-EF'));
   }
 
+  public function testShouldOutputABinaryMacAddress() {
+    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddress::binary('12-3A-D6-4B-C5-EF'));
+  }
+
   public function testShouldNotValidateAStringMacAddressNotInPairsOfHexDigits() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
       MacAddress::is_unicast('12-3A-D6-4BC-5-EF');
