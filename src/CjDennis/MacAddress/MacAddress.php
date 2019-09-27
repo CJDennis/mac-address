@@ -7,14 +7,6 @@ class MacAddress {
   protected static $mac_address;
   protected static $fake_mac_address;
 
-  public static function fake_mac_address_hex() {
-    if (static::$fake_mac_address === null) {
-      static::$fake_mac_address = dechex(Random::random_int() | 0x0100) . Random::random_hex_bytes(4);
-      static::$fake_mac_address = join('-', str_split(static::$fake_mac_address, 2));
-    }
-    return static::$fake_mac_address;
-  }
-
   public static function mac_address_hex() {
     if (static::$mac_address === null) {
       $connected_mac_addresses = static::system_mac_addresses();
@@ -27,6 +19,14 @@ class MacAddress {
       }
     }
     return static::$mac_address;
+  }
+
+  public static function fake_mac_address_hex() {
+    if (static::$fake_mac_address === null) {
+      static::$fake_mac_address = dechex(Random::random_int() | 0x0100) . Random::random_hex_bytes(4);
+      static::$fake_mac_address = join('-', str_split(static::$fake_mac_address, 2));
+    }
+    return static::$fake_mac_address;
   }
 
   protected static function system_mac_addresses() {
