@@ -4,7 +4,9 @@
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "cjdennis/random": "dev-master"
+    },
     "autoload": {
         "psr-4": {"CjDennis\\MacAddress\\": "src/CjDennis/MacAddress/"}
     },

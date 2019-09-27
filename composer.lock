@@ -1,0 +1,50 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2ea9edc5ec1bff5c224d1dc07a8f8421",
+    "packages": [
+        {
+            "name": "cjdennis/random",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CJDennis/random.git",
+                "reference": "aec10828b00f1956c6dd8a0e1c77b383016ddf0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CJDennis/random/zipball/aec10828b00f1956c6dd8a0e1c77b383016ddf0a",
+                "reference": "aec10828b00f1956c6dd8a0e1c77b383016ddf0a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CjDennis\\Random\\": "src/CjDennis/Random/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Formatted random number generator",
+            "time": "2019-09-23T22:59:11+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "cjdennis/random": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
