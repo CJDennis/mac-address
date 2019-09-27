@@ -127,4 +127,8 @@ OUTPUT
   public function testShouldVerifyAMacAddressIsUnicast() {
     $this->assertTrue(MacAddressSeam::is_unicast('F0-FF-FF-FF-FF-FF'));
   }
+
+  public function testShouldVerifyAMacAddressIsNotUnicast() {
+    $this->assertFalse(MacAddressSeam::is_unicast('F1-FF-FF-FF-FF-FF'));
+  }
 }
