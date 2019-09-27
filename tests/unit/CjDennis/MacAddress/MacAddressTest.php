@@ -145,4 +145,10 @@ OUTPUT
       MacAddress::hex("\x12\x3A\xD6\x4B\xC5");
     });
   }
+
+  public function testShouldThrowAnExceptionWhenPassedABinaryStringLongerThanSixBytes() {
+    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
+      MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF\x79");
+    });
+  }
 }
