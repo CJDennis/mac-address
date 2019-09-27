@@ -108,6 +108,9 @@ class MacAddress {
     if (strlen($delimiter) === 0) {
       throw MacAddressException::new(MacAddressException::BLANK_DELIMITER);
     }
+    if (strlen($delimiter) > 1) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG);
+    }
     return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
 }
