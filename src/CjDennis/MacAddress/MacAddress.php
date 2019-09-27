@@ -63,14 +63,6 @@ class MacAddress {
     return php_uname('s');
   }
 
-  public static function is_valid($mac_address) {
-    $is_valid = false;
-    if (preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address)) {
-      $is_valid = true;
-    }
-    return $is_valid;
-  }
-
   public static function is_unicast(string $mac_address) {
     $mac_address = static::strip($mac_address);
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
@@ -86,5 +78,13 @@ class MacAddress {
     if (!static::is_valid($mac_address)) {
       throw MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS);
     }
+  }
+
+  public static function is_valid($mac_address) {
+    $is_valid = false;
+    if (preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address)) {
+      $is_valid = true;
+    }
+    return $is_valid;
   }
 }
