@@ -77,9 +77,7 @@ class MacAddress {
   }
 
   public static function binary($mac_address) {
-    static::validate_hex($mac_address);
-    $mac_address = preg_replace('/[^\dA-F]/i', '', $mac_address);
-    return hex2bin($mac_address);
+    return hex2bin(static::hex($mac_address));
   }
 
   public static function is_unicast(string $mac_address) {
