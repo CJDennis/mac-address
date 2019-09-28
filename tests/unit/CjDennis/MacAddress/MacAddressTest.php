@@ -146,6 +146,10 @@ OUTPUT
     $this->assertTrue(MacAddressSeam::is_unicast("\xF0\xFF\xFF\xFF\xFF\xFF"));
   }
 
+  public function testShouldVerifyAMacAddressIsNotMulticastFromABinaryString() {
+    $this->assertFalse(MacAddress::is_multicast("\xF0\xFF\xFF\xFF\xFF\xFF"));
+  }
+
   public function testShouldOutputAHexMacAddressFromABinaryString() {
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
