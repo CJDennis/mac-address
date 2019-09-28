@@ -107,8 +107,9 @@ class MacAddress {
     return (hexdec(substr($mac_address, 0, 4)) & static::MULTICAST) === static::MULTICAST;
   }
 
-  public static function is_universal(string $string) {
-    return true;
+  public static function is_universal($mac_address) {
+    $mac_address = static::hex($mac_address);
+    return (hexdec(substr($mac_address, 0, 4)) & static::LOCAL) === static::UNIVERSAL;
   }
 
   public static function binary($mac_address) {
