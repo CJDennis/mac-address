@@ -77,7 +77,7 @@ class MacAddress {
   }
 
   public static function binary($mac_address) {
-    static::validate($mac_address);
+    static::validate_hex($mac_address);
     $mac_address = preg_replace('/[^\dA-F]/i', '', $mac_address);
     return hex2bin($mac_address);
   }
@@ -88,33 +88,36 @@ class MacAddress {
   }
 
   protected static function strip(string $mac_address) {
-    static::validate($mac_address);
+    static::validate_hex($mac_address);
     $mac_address = preg_replace('/[^\da-f]/i', '', $mac_address);
     return $mac_address;
   }
 
-  protected static function validate(string $mac_address) {
-    if (!static::is_valid($mac_address)) {
+  public static function hex($mac_address) {
+    if (strlen($mac_address) > 8) {
+      static::validate_hex($mac_address);
+      $mac_address = preg_replace('/[^\dA-F]/i', '', $mac_address);
+    }
+    else {
+      static::validate_binary($mac_address);
+      $mac_address = bin2hex($mac_address);
+    }
+    return strtoupper($mac_address);
+  }
+
+  protected static function validate_hex(string $mac_address) {
+    if (!(preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address))) {
       throw MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS);
     }
   }
 
-  protected static function is_valid($mac_address) {
-    $is_valid = false;
-    if (preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address)) {
-      $is_valid = true;
-    }
-    return $is_valid;
-  }
-
-  public static function hex($mac_address) {
+  protected static function validate_binary($mac_address): void {
     if (strlen($mac_address) < 6) {
       throw MacAddressException::new(MacAddressException::INVALID_BINARY_STRING);
     }
     if (strlen($mac_address) > 6) {
       throw MacAddressException::new(MacAddressException::INVALID_BINARY_STRING);
     }
-    return strtoupper(bin2hex($mac_address));
   }
 
   public static function format($mac_address, $delimiter = '-') {
