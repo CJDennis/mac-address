@@ -5,13 +5,16 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {
-        "cjdennis/random": "dev-master",
-        "cjdennis/message": "dev-master"
+        "cjdennis/message": "dev-master",
+        "cjdennis/random": "dev-master"
     },
     "autoload": {
         "psr-4": {"CjDennis\\MacAddress\\": "src/CjDennis/MacAddress/"}
     },
     "autoload-dev": {
-        "psr-4": {"CjDennis\\MacAddress\\": "tests/unit/CjDennis/MacAddress/"}
+        "psr-4": {
+            "CjDennis\\MacAddress\\": "tests/unit/CjDennis/MacAddress/",
+            "CjDennis\\Random\\": "vendor/cjdennis/random/tests/unit/CjDennis/Random/"
+        }
     }
 }

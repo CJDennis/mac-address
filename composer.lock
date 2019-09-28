@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47e521c4b37a5529aa036db9471365b3",
+    "content-hash": "64c4c59e2cd97bf1fcf3ce8213e9c222",
     "packages": [
         {
             "name": "cjdennis/message",
@@ -68,8 +68,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cjdennis/random": 20,
-        "cjdennis/message": 20
+        "cjdennis/message": 20,
+        "cjdennis/random": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
