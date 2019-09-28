@@ -76,13 +76,13 @@ class MacAddress {
     return php_uname('s');
   }
 
-  public static function binary($mac_address) {
-    return hex2bin(static::hex($mac_address));
-  }
-
   public static function is_unicast(string $mac_address) {
     $mac_address = static::hex($mac_address);
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
+  }
+
+  public static function binary($mac_address) {
+    return hex2bin(static::hex($mac_address));
   }
 
   public static function hex($mac_address) {
