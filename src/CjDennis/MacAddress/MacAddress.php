@@ -76,6 +76,27 @@ class MacAddress {
     return php_uname('s');
   }
 
+  public static function format($mac_address, $delimiter = '-') {
+    $mac_address = static::hex($mac_address);
+    static::validate_delimiter($delimiter);
+    return join($delimiter, str_split(strtoupper($mac_address), 2));
+  }
+
+  protected static function validate_delimiter($delimiter): void {
+    if (strlen($delimiter) === 0) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_BLANK);
+    }
+    if (strlen($delimiter) > 1) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG);
+    }
+    if (preg_match('/\s/', $delimiter)) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE);
+    }
+    if (preg_match('/[^\W_]/', $delimiter)) {
+      throw MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC);
+    }
+  }
+
   public static function is_unicast(string $mac_address) {
     $mac_address = static::hex($mac_address);
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
@@ -109,27 +130,6 @@ class MacAddress {
     }
     if (strlen($mac_address) > 6) {
       throw MacAddressException::new(MacAddressException::INVALID_BINARY_STRING);
-    }
-  }
-
-  public static function format($mac_address, $delimiter = '-') {
-    $mac_address = static::hex($mac_address);
-    static::validate_delimiter($delimiter);
-    return join($delimiter, str_split(strtoupper($mac_address), 2));
-  }
-
-  protected static function validate_delimiter($delimiter): void {
-    if (strlen($delimiter) === 0) {
-      throw MacAddressException::new(MacAddressException::DELIMITER_BLANK);
-    }
-    if (strlen($delimiter) > 1) {
-      throw MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG);
-    }
-    if (preg_match('/\s/', $delimiter)) {
-      throw MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE);
-    }
-    if (preg_match('/[^\W_]/', $delimiter)) {
-      throw MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC);
     }
   }
 }
