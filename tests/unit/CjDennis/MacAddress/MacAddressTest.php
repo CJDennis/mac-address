@@ -30,7 +30,7 @@ class MacAddressTest extends Unit {
   }
 
   public function testShouldGetAFakeMacAddress() {
-    $fake_mac_address_hex = MacAddressSeam::fake_mac_address_hex();
+    $fake_mac_address_hex = MacAddress::fake_mac_address_hex();
     $this->assertRegExp('/^[\da-f][26ae](?:-[\da-f]{2}){5}$/i', $fake_mac_address_hex);
   }
 
