@@ -31,13 +31,13 @@ class MacAddressTest extends Unit {
 
   public function testShouldGetAFakeMacAddress() {
     $fake_mac_address_hex = MacAddressSeam::fake_mac_address_hex();
-    $this->assertRegExp('/^[\da-f][13579bdf](?:-[\da-f]{2}){5}$/i', $fake_mac_address_hex);
+    $this->assertRegExp('/^[\da-f][26ae](?:-[\da-f]{2}){5}$/i', $fake_mac_address_hex);
   }
 
   public function testShouldGetAFakeMacAddressWhenTheSystemHasNone() {
     MacAddressSeam::set_override_system();
     $mac_address_hex = MacAddressSeam::mac_address_hex();
-    $this->assertRegExp('/^[\da-f][13579bdf](?:-[\da-f]{2}){5}$/i', $mac_address_hex);
+    $this->assertRegExp('/^[\da-f][26ae](?:-[\da-f]{2}){5}$/i', $mac_address_hex);
   }
 
   public function testShouldGetAWindowsMacAddressFromTheMocker() {
@@ -198,6 +198,6 @@ OUTPUT
 
   public function testShouldPadAllSingleDigitValuesWithALeadingZeroInFakeMacAddresses() {
     MacAddressSeam::random_bytes("\x00\x00\x00\x00\x00\x00");
-    $this->assertSame('01-00-00-00-00-00', MacAddressSeam::fake_mac_address_hex());
+    $this->assertSame('02-00-00-00-00-00', MacAddressSeam::fake_mac_address_hex());
   }
 }
