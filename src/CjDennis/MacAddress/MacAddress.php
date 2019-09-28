@@ -134,7 +134,7 @@ class MacAddress {
   }
 
   protected static function validate_hex(string $mac_address) {
-    if (!(preg_match('/\A\s*[\da-f]{2}(?:\W*[\da-f]{2}){5}\s*\z/i', $mac_address))) {
+    if (!(preg_match('/\A\s*[\dA-F]{2}(?:\W*[\dA-F]{2}){5}\s*\z/i', $mac_address))) {
       throw MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS);
     }
   }
