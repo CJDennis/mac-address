@@ -4,16 +4,16 @@ namespace CjDennis\MacAddress;
 use CjDennis\Random\Random;
 
 class MacAddress {
-  const COMMANDS = [
+  protected const COMMANDS = [
     'WIN' => ['identifier' => '/^(Win).*/i', 'command' => 'getmac /nh', 'search' => '/^(.{17}) {3}\S+$/'],
     'LINUX' => ['identifier' => '/^(Linux).*/i', 'command' => 'ifconfig', 'search' => '/^.* HWaddr (\S+)$/'],
     'DARWIN' => ['identifier' => '/^(Darwin).*/i', 'command' => 'ifconfig', 'search' => '/^.* HWaddr (\S+)$/'],
   ];
-  const MASK = 0xFCFF;
-  const UNICAST = 0x0000;
-  const MULTICAST = 0x0100;
-  const UNIVERSAL = 0x0000;
-  const LOCAL = 0x0200;
+  protected const MASK = 0xFCFF;
+  protected const UNICAST = 0x0000;
+  protected const MULTICAST = 0x0100;
+  protected const UNIVERSAL = 0x0000;
+  protected const LOCAL = 0x0200;
 
   protected static $mac_address;
   protected static $fake_mac_address;
