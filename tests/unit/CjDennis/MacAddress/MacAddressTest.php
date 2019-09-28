@@ -130,6 +130,10 @@ OUTPUT
     $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddressSeam::binary('  12-  *3a: :D6  4Bc5-Ef   '));
   }
 
+  public function testShouldOutputABinaryMacAddressFromABinaryString() {
+    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddressSeam::binary("\x12\x3A\xD6\x4B\xC5\xEF"));
+  }
+
   public function testShouldVerifyAMacAddressIsUnicast() {
     $this->assertTrue(MacAddressSeam::is_unicast('F0-FF-FF-FF-FF-FF'));
   }
