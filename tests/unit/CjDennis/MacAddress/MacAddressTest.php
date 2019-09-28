@@ -158,7 +158,7 @@ OUTPUT
     $this->assertTrue(MacAddress::is_universal("\xF0\xFF\xFF\xFF\xFF\xFF"));
   }
 
-  public function testShouldVerifyAMacAddressNotIsUniversalFromAHexString() {
+  public function testShouldVerifyAMacAddressIsNotUniversalFromAHexString() {
     $this->assertFalse(MacAddress::is_universal('F2-FF-FF-FF-FF-FF'));
   }
 
