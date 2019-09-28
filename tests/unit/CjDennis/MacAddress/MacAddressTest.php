@@ -191,4 +191,8 @@ OUTPUT
       MacAddress::format('123Ad64bC5eF', 'x');
     });
   }
+
+  public function testShouldOutputAFormattedMacAddressFromABinaryStringWithDelimitedWithUnderscores() {
+    $this->assertSame('12_3A_D6_4B_C5_EF', MacAddress::format('123Ad64bC5eF', '_'));
+  }
 }
