@@ -205,4 +205,8 @@ OUTPUT
     MacAddressSeam::random_bytes("\xFF\xFF\xFF\xFF\xFF\xFF");
     $this->assertSame('FE-FF-FF-FF-FF-FF', MacAddressSeam::fake_mac_address_hex());
   }
+
+  public function testShouldOutputAHexMacAddressFromAHexString() {
+    $this->assertSame('123AD64BC5EF', MacAddress::hex("123aD64bC5Ef"));
+  }
 }
