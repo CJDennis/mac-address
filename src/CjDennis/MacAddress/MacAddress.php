@@ -113,6 +113,7 @@ class MacAddress {
   }
 
   public static function format($mac_address, $delimiter = '-') {
+    $mac_address = static::hex($mac_address);
     static::validate_delimiter($delimiter);
     return join($delimiter, str_split(strtoupper($mac_address), 2));
   }
