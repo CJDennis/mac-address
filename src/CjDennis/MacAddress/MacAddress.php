@@ -112,6 +112,10 @@ class MacAddress {
     return (hexdec(substr($mac_address, 0, 4)) & static::LOCAL) === static::UNIVERSAL;
   }
 
+  public static function is_local(string $string) {
+    return false;
+  }
+
   public static function binary($mac_address) {
     return hex2bin(static::hex($mac_address));
   }
