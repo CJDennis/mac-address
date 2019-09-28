@@ -85,12 +85,6 @@ class MacAddress {
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
   }
 
-  protected static function strip(string $mac_address) {
-    static::validate_hex($mac_address);
-    $mac_address = preg_replace('/[^\da-f]/i', '', $mac_address);
-    return $mac_address;
-  }
-
   public static function hex($mac_address) {
     if (strlen($mac_address) > 8) {
       static::validate_hex($mac_address);
