@@ -34,7 +34,7 @@ class MacAddress {
 
   public static function fake_mac_address_hex() {
     if (static::$fake_mac_address === null) {
-      static::$fake_mac_address = sprintf('%04X', static::random_short_int() & static::MASK | static::MULTICAST) . strtoupper(static::random_hex_bytes(4));
+      static::$fake_mac_address = sprintf('%04X', static::random_short_int() & static::MASK | static::UNICAST | static::LOCAL) . strtoupper(static::random_hex_bytes(4));
       static::$fake_mac_address = join('-', str_split(static::$fake_mac_address, 2));
     }
     return static::$fake_mac_address;
