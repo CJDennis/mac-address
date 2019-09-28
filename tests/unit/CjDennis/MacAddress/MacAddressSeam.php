@@ -1,6 +1,8 @@
 <?php
 namespace CjDennis\MacAddress;
 
+use CjDennis\Random\RandomSeam;
+
 class MacAddressSeam extends MacAddress {
   protected static $override_system = false;
 
@@ -10,6 +12,18 @@ class MacAddressSeam extends MacAddress {
 
   public static function set_fake_mac_address($fake_mac_address) {
     static::$fake_mac_address = $fake_mac_address;
+  }
+
+  public static function random_bytes($bytes) {
+    RandomSeam::set_bytes($bytes);
+  }
+
+  protected static function random_short_int() {
+    return RandomSeam::random_short_int();
+  }
+
+  protected static function random_hex_bytes($count) {
+    return RandomSeam::random_hex_bytes($count);
   }
 
   public static function set_override_system() {

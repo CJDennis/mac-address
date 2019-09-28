@@ -9,6 +9,11 @@ class MacAddress {
     'LINUX' => ['identifier' => '/^(Linux).*/i', 'command' => 'ifconfig', 'search' => '/^.* HWaddr (\S+)$/'],
     'DARWIN' => ['identifier' => '/^(Darwin).*/i', 'command' => 'ifconfig', 'search' => '/^.* HWaddr (\S+)$/'],
   ];
+  const MASK = 0xFCFF;
+  const UNICAST = 0x0000;
+  const MULTICAST = 0x0100;
+  const UNIVERSAL = 0x0000;
+  const LOCAL = 0x0200;
 
   protected static $mac_address;
   protected static $fake_mac_address;
@@ -29,10 +34,18 @@ class MacAddress {
 
   public static function fake_mac_address_hex() {
     if (static::$fake_mac_address === null) {
-      static::$fake_mac_address = dechex(Random::random_short_int() | 0x0100) . Random::random_hex_bytes(4);
+      static::$fake_mac_address = sprintf('%04X', static::random_short_int() & static::MASK | static::MULTICAST) . strtoupper(static::random_hex_bytes(4));
       static::$fake_mac_address = join('-', str_split(static::$fake_mac_address, 2));
     }
     return static::$fake_mac_address;
+  }
+
+  protected static function random_short_int() {
+    return Random::random_short_int();
+  }
+
+  protected static function random_hex_bytes($count) {
+    return Random::random_hex_bytes($count);
   }
 
   protected static function system_mac_addresses() {
