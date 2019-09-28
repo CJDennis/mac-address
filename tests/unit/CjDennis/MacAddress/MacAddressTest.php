@@ -166,45 +166,45 @@ OUTPUT
     });
   }
 
-  public function testShouldOutputAFormattedMacAddressFromABinaryString() {
+  public function testShouldOutputAFormattedMacAddressFromAHexString() {
     $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::format('123Ad64bC5eF'));
   }
 
-  public function testShouldOutputAFormattedMacAddressFromABinaryStringWithACustomDelimiter() {
+  public function testShouldOutputAFormattedMacAddressFromAHexStringWithACustomDelimiter() {
     $this->assertSame('12:3A:D6:4B:C5:EF', MacAddress::format('123Ad64bC5eF', ':'));
   }
 
-  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithABlankDelimiter() {
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithABlankDelimiter() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_BLANK), function () {
       MacAddress::format('123Ad64bC5eF', '');
     });
   }
 
-  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAMultipleCharacterDelimiter() {
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAMultipleCharacterDelimiter() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG), function () {
       MacAddress::format('123Ad64bC5eF', '::');
     });
   }
 
-  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAWhitespaceDelimiter() {
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAWhitespaceDelimiter() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE), function () {
       MacAddress::format('123Ad64bC5eF', ' ');
     });
   }
 
-  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithANumericDelimiter() {
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithANumericDelimiter() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
       MacAddress::format('123Ad64bC5eF', '9');
     });
   }
 
-  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromABinaryStringWithAnAlphabeticDelimiter() {
+  public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAnAlphabeticDelimiter() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
       MacAddress::format('123Ad64bC5eF', 'x');
     });
   }
 
-  public function testShouldOutputAFormattedMacAddressFromABinaryStringWithDelimitedWithUnderscores() {
+  public function testShouldOutputAFormattedMacAddressFromAHexStringWithDelimitedWithUnderscores() {
     $this->assertSame('12_3A_D6_4B_C5_EF', MacAddress::format('123Ad64bC5eF', '_'));
   }
 
