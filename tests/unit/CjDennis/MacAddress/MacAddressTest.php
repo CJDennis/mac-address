@@ -200,4 +200,9 @@ OUTPUT
     MacAddressSeam::random_bytes("\x00\x00\x00\x00\x00\x00");
     $this->assertSame('02-00-00-00-00-00', MacAddressSeam::fake_mac_address_hex());
   }
+
+  public function testShouldSetTheBitsForLocalAndUnicastWhenGettingAFakeMacAddress() {
+    MacAddressSeam::random_bytes("\xFF\xFF\xFF\xFF\xFF\xFF");
+    $this->assertSame('FE-FF-FF-FF-FF-FF', MacAddressSeam::fake_mac_address_hex());
+  }
 }
