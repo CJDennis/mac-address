@@ -150,6 +150,10 @@ OUTPUT
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
 
+  public function testShouldOutputAHexMacAddressFromAHexString() {
+    $this->assertSame('123AD64BC5EF', MacAddress::hex("123aD64bC5Ef"));
+  }
+
   public function testShouldThrowAnExceptionWhenPassedABinaryStringShorterThanSixBytes() {
     $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
       MacAddress::hex("\x12\x3A\xD6\x4B\xC5");
@@ -212,9 +216,5 @@ OUTPUT
   public function testShouldSetTheBitsForLocalAndUnicastWhenGettingAFakeMacAddress() {
     MacAddressSeam::random_bytes("\xFF\xFF\xFF\xFF\xFF\xFF");
     $this->assertSame('FE-FF-FF-FF-FF-FF', MacAddressSeam::fake_mac_address_hex());
-  }
-
-  public function testShouldOutputAHexMacAddressFromAHexString() {
-    $this->assertSame('123AD64BC5EF', MacAddress::hex("123aD64bC5Ef"));
   }
 }
