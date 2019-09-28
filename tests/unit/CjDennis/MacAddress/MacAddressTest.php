@@ -166,6 +166,10 @@ OUTPUT
     $this->assertFalse(MacAddress::is_local("\xF0\xFF\xFF\xFF\xFF\xFF"));
   }
 
+  public function testShouldVerifyAMacAddressIsLocalFromAHexString() {
+    $this->assertTrue(MacAddress::is_local('F2-FF-FF-FF-FF-FF'));
+  }
+
   public function testShouldOutputAHexMacAddressFromABinaryString() {
     $this->assertSame('123AD64BC5EF', MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
