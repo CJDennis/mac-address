@@ -195,4 +195,9 @@ OUTPUT
   public function testShouldOutputAFormattedMacAddressFromABinaryStringWithDelimitedWithUnderscores() {
     $this->assertSame('12_3A_D6_4B_C5_EF', MacAddress::format('123Ad64bC5eF', '_'));
   }
+
+  public function testShouldPadAllSingleDigitValuesWithALeadingZeroInFakeMacAddresses() {
+    MacAddressSeam::random_bytes("\x00\x00\x00\x00\x00\x00");
+    $this->assertSame('01-00-00-00-00-00', MacAddressSeam::fake_mac_address_hex());
+  }
 }
