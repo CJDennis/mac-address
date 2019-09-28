@@ -127,23 +127,23 @@ OUTPUT
   }
 
   public function testShouldOutputABinaryMacAddressFromAStringMacAddressWithPairsOfHexDigits() {
-    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddressSeam::binary('  12-  *3a: :D6  4Bc5-Ef   '));
+    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddress::binary('  12-  *3a: :D6  4Bc5-Ef   '));
   }
 
   public function testShouldOutputABinaryMacAddressFromABinaryString() {
-    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddressSeam::binary("\x12\x3A\xD6\x4B\xC5\xEF"));
+    $this->assertSame("\x12\x3A\xD6\x4B\xC5\xEF", MacAddress::binary("\x12\x3A\xD6\x4B\xC5\xEF"));
   }
 
   public function testShouldVerifyAMacAddressIsUnicast() {
-    $this->assertTrue(MacAddressSeam::is_unicast('F0-FF-FF-FF-FF-FF'));
+    $this->assertTrue(MacAddress::is_unicast('F0-FF-FF-FF-FF-FF'));
   }
 
   public function testShouldVerifyAMacAddressIsNotUnicast() {
-    $this->assertFalse(MacAddressSeam::is_unicast('F1-FF-FF-FF-FF-FF'));
+    $this->assertFalse(MacAddress::is_unicast('F1-FF-FF-FF-FF-FF'));
   }
 
   public function testShouldVerifyAMacAddressIsUnicastFromABinaryString() {
-    $this->assertTrue(MacAddressSeam::is_unicast("\xF0\xFF\xFF\xFF\xFF\xFF"));
+    $this->assertTrue(MacAddress::is_unicast("\xF0\xFF\xFF\xFF\xFF\xFF"));
   }
 
   public function testShouldVerifyAMacAddressIsNotMulticastFromABinaryString() {
