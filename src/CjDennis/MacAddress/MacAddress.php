@@ -81,7 +81,7 @@ class MacAddress {
   }
 
   public static function is_unicast(string $mac_address) {
-    $mac_address = static::strip($mac_address);
+    $mac_address = static::hex($mac_address);
     return (hexdec(substr($mac_address, 0, 2)) & 0x01) === 0;
   }
 
