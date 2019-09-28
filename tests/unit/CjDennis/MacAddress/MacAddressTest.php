@@ -166,6 +166,10 @@ OUTPUT
     });
   }
 
+  public function testShouldOutputAFormattedMacAddressFromABinaryString() {
+    $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::format("\x12\x3A\xD6\x4B\xC5\xEF"));
+  }
+
   public function testShouldOutputAFormattedMacAddressFromAHexString() {
     $this->assertSame('12-3A-D6-4B-C5-EF', MacAddress::format('123Ad64bC5eF'));
   }
