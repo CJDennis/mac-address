@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72a0436c186f236ae2b664eaafe0c47e",
+    "content-hash": "a67c6838927da8eaf31fa44101abf825",
     "packages": [
         {
             "name": "cjdennis/message",
@@ -12,13 +12,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CJDennis/message.git",
-                "reference": "832c9226094f87ce020205d4520d6db48cb7d743"
+                "reference": "731ec7885cefc150544cd4663397a3cdc5a98025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CJDennis/message/zipball/832c9226094f87ce020205d4520d6db48cb7d743",
-                "reference": "832c9226094f87ce020205d4520d6db48cb7d743",
+                "url": "https://api.github.com/repos/CJDennis/message/zipball/731ec7885cefc150544cd4663397a3cdc5a98025",
+                "reference": "731ec7885cefc150544cd4663397a3cdc5a98025",
                 "shasum": ""
+            },
+            "require-dev": {
+                "codeception/codeception": "^3.1",
+                "infection/infection": "^0.14.2"
             },
             "type": "library",
             "autoload": {
@@ -31,7 +35,7 @@
                 "MIT"
             ],
             "description": "Mandatory error code exceptions",
-            "time": "2019-09-23T21:41:15+00:00"
+            "time": "2019-11-22T14:42:00+00:00"
         },
         {
             "name": "cjdennis/random",
@@ -39,16 +43,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CJDennis/random.git",
-                "reference": "9645a880acb93cb13c3551754962750decf30541"
+                "reference": "73f7200f36555f2446a685424a4df23e4edcdf5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CJDennis/random/zipball/9645a880acb93cb13c3551754962750decf30541",
-                "reference": "9645a880acb93cb13c3551754962750decf30541",
+                "url": "https://api.github.com/repos/CJDennis/random/zipball/73f7200f36555f2446a685424a4df23e4edcdf5c",
+                "reference": "73f7200f36555f2446a685424a4df23e4edcdf5c",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "^3.1",
+                "infection/infection": "^0.14.2"
             },
             "type": "library",
             "autoload": {
@@ -61,7 +69,7 @@
                 "MIT"
             ],
             "description": "Formatted random number generator",
-            "time": "2019-09-27T13:18:10+00:00"
+            "time": "2019-11-22T14:10:13+00:00"
         }
     ],
     "packages-dev": [],
@@ -71,7 +79,7 @@
         "cjdennis/message": 20,
         "cjdennis/random": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

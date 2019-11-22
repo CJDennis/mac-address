@@ -1,7 +1,7 @@
 <?php
 namespace CJDennis\MacAddress;
 
-use CjDennis\Message\MessageException;
+use CJDennis\Message\MessageException;
 
 class MacAddressException extends MessageException {
   const INVALID_MAC_ADDRESS = 0x01;

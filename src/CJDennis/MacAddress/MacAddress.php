@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace CJDennis\MacAddress;
 
-use CjDennis\Random\Random;
+use CJDennis\Random\Random;
 
 class MacAddress {
   protected const COMMANDS = [

@@ -14,7 +14,7 @@
     "autoload-dev": {
         "psr-4": {
             "CJDennis\\MacAddress\\": "tests/unit/CJDennis/MacAddress/",
-            "CjDennis\\Random\\": "vendor/cjdennis/random/tests/unit/CjDennis/Random/"
+            "CJDennis\\Random\\": "vendor/cjdennis/random/tests-common/unit/CJDennis/Random/"
         }
     },
     "prefer-stable": true

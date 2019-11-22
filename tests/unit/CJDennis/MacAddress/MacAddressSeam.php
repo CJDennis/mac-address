@@ -1,7 +1,7 @@
 <?php
 namespace CJDennis\MacAddress;
 
-use CjDennis\Random\RandomSeam;
+use CJDennis\Random\RandomSeam;
 
 class MacAddressSeam extends MacAddress {
   protected static $override_system = false;
