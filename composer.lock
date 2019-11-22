@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64c4c59e2cd97bf1fcf3ce8213e9c222",
+    "content-hash": "72a0436c186f236ae2b664eaafe0c47e",
     "packages": [
         {
             "name": "cjdennis/message",
@@ -23,7 +23,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "CjDennis\\Message\\": "src/CjDennis/Message/"
+                    "CJDennis\\Message\\": "src/CJDennis/Message/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -53,7 +53,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "CjDennis\\Random\\": "src/CjDennis/Random/"
+                    "CJDennis\\Random\\": "src/CJDennis/Random/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

@@ -9,11 +9,11 @@
         "cjdennis/random": "dev-master"
     },
     "autoload": {
-        "psr-4": {"CjDennis\\MacAddress\\": "src/CjDennis/MacAddress/"}
+        "psr-4": {"CJDennis\\MacAddress\\": "src/CJDennis/MacAddress/"}
     },
     "autoload-dev": {
         "psr-4": {
-            "CjDennis\\MacAddress\\": "tests/unit/CjDennis/MacAddress/",
+            "CJDennis\\MacAddress\\": "tests/unit/CJDennis/MacAddress/",
             "CjDennis\\Random\\": "vendor/cjdennis/random/tests/unit/CjDennis/Random/"
         }
     }

@@ -1,7 +1,7 @@
 <?php
 /** @noinspection PhpUndefinedClassInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
-namespace CjDennis\MacAddress;
+namespace CJDennis\MacAddress;
 
 use Codeception\Test\Unit;
 use UnitTester;

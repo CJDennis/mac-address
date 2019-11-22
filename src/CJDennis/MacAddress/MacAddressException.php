@@ -1,5 +1,5 @@
 <?php
-namespace CjDennis\MacAddress;
+namespace CJDennis\MacAddress;
 
 use CjDennis\Message\MessageException;
 

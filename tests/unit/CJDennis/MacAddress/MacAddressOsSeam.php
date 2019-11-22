@@ -1,5 +1,5 @@
 <?php
-namespace CjDennis\MacAddress;
+namespace CJDennis\MacAddress;
 
 class MacAddressOsSeam extends MacAddress {
   public const OPERATING_SYSTEM = null;

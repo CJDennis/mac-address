@@ -1,5 +1,5 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
-namespace CjDennis\MacAddress;
+namespace CJDennis\MacAddress;
 
 use CjDennis\Random\Random;
 
