@@ -3,7 +3,7 @@
     "description": "Get a MAC address from the system",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "cjdennis/message": "dev-master",
         "cjdennis/random": "dev-master"
@@ -16,5 +16,6 @@
             "CJDennis\\MacAddress\\": "tests/unit/CJDennis/MacAddress/",
             "CjDennis\\Random\\": "vendor/cjdennis/random/tests/unit/CjDennis/Random/"
         }
-    }
+    },
+    "prefer-stable": true
 }
