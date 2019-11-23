@@ -1,0 +1,21 @@
+language: php
+
+php:
+- '7.3'
+- '7.2'
+#- '7.1'
+#- '7.0'
+#- '5.6'
+#- '5.5'
+#- '5.4'
+
+install: composer update
+
+script:
+- vendor/bin/codecept run unit --coverage-xml=../../coverage.xml
+- vendor/bin/infection --threads=$(nproc) --min-covered-msi=100 --min-msi=100
+- bash <(curl -s https://codecov.io/bash) -c -F unittests
+
+env:
+  global:
+    secure: sHGqNbd8PjgVV2Uijj04lQ3wCY+4UBJErNo2KDnw7Pmfar5uAKesVMTa3Zeyb01ZyUEt/g6QZZqyNxQj/9I/xs5otLn95t9UcJPsmcAGaJQ8FHMLdv3xHf8v5Z3ClyosLWbjo8hGvP38/OkCAsP+GKw6vNCnBgXeTIe+u3bnob7Jreqcu75o3oLhavy7wT8O3Yx2zxuwrKx1eoONzDyO4M56Cx3ffoZG0APmlRXWYuItg5bW9cPh3lnaRBCoT1jSdYVRwYQSNuLVHc8dnpoF7cKbE8DWzMch8/uoEobOWgccNzP0amvF4vbwZCCuT+2Hj7SMk9LJnGQ4Gs/qrdrk96gyX5f+QJMtyF4+L2o67KdSvVprQwLlU2grwAxGz7n31RaVKDNYl4K3hMFjDPncR2IOlWveE2Vlh7vlqSdiKkH5P/fLW7yLu+MR7GGCi+owIDLV54kSVAuVr5ZTTpQFjfkG4TkzdmslOR/rYR0bvUM8cvwQlOwAnLu44PyahqBEl1+0z4WGJEvmpKA+o/dZcyxCcoA7fI/P0PvBqScMFw3HnVIfN1fGJzPjB4HvVngwjzZ8zR1BaqdVAWu8GJm5uOITTzsjSvxtmLgI94IxOfvgz0MLZFlVGC7A60oAu3KDXJ0CoGMoEACkyCaM4tgrASqoKGkuTH0GVH7LDtp7SKA=
