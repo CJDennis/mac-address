@@ -17,5 +17,9 @@
             "CJDennis\\Random\\": "vendor/cjdennis/random/tests-common/unit/CJDennis/Random/"
         }
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "codeception/codeception": "^3.1",
+        "infection/infection": "^0.14.2"
+    }
 }
