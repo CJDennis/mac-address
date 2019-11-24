@@ -20,6 +20,7 @@
     "prefer-stable": true,
     "require-dev": {
         "codeception/codeception": "^3.1",
-        "infection/infection": "^0.14.2"
+        "infection/infection": "^0.14.2",
+        "cjdennis/unit-test-compatibility": "dev-master"
     }
 }

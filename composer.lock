@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25c388743e9c94869c44a96580ed1e2f",
+    "content-hash": "722207c8d7f99611e302e21fa0064525",
     "packages": [
         {
             "name": "cjdennis/message",
@@ -131,6 +131,37 @@
                 "parser"
             ],
             "time": "2019-01-16T14:22:17+00:00"
+        },
+        {
+            "name": "cjdennis/unit-test-compatibility",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CJDennis/unit-test-compatibility.git",
+                "reference": "9053f01e4c6ddacbe68ce2e5390420d95c593f29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CJDennis/unit-test-compatibility/zipball/9053f01e4c6ddacbe68ce2e5390420d95c593f29",
+                "reference": "9053f01e4c6ddacbe68ce2e5390420d95c593f29",
+                "shasum": ""
+            },
+            "require-dev": {
+                "codeception/codeception": "^3.1",
+                "infection/infection": "^0.14.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CJDennis\\UnitTestCompatibility\\": "src/CJDennis/UnitTestCompatibility/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Compatibility wrappers for PHPUnit and Codeception",
+            "time": "2019-11-24T12:20:54+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -4104,7 +4135,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "cjdennis/message": 20,
-        "cjdennis/random": 20
+        "cjdennis/random": 20,
+        "cjdennis/unit-test-compatibility": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

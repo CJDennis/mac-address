@@ -1,24 +1,15 @@
 <?php
-/** @noinspection PhpUndefinedClassInspection */
-/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpUnused */
 namespace CJDennis\MacAddress;
 
-use Codeception\Test\Unit;
-use UnitTester;
-
-class MacAddressTest extends Unit {
-  /**
-   * @var UnitTester
-   */
-  protected $tester;
-
-  protected function _before() {
+trait MacAddressTestCommon {
+  protected function common_before() {
     MacAddressSeam::set_mac_address(null);
     MacAddressSeam::set_fake_mac_address(null);
     MacAddressSeam::clear_override_system();
   }
 
-  protected function _after() {
+  protected function common_after() {
     MacAddressSeam::set_fake_mac_address(null);
     MacAddressSeam::clear_override_system();
   }
@@ -111,13 +102,13 @@ OUTPUT
   }
 
   public function testShouldNotValidateAStringMacAddressNotInPairsOfHexDigits() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
       MacAddress::is_unicast('12-3A-D6-4BC-5-EF');
     });
   }
 
   public function testShouldNotValidateAStringMacAddressWithNonHexAlphanumericCharacters() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::INVALID_MAC_ADDRESS), function () {
       MacAddress::is_unicast('12-3A-D6-4B-C5-EG');
     });
   }
@@ -179,13 +170,13 @@ OUTPUT
   }
 
   public function testShouldThrowAnExceptionWhenPassedABinaryStringShorterThanSixBytes() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
       MacAddress::hex("\x12\x3A\xD6\x4B\xC5");
     });
   }
 
   public function testShouldThrowAnExceptionWhenPassedABinaryStringLongerThanSixBytes() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::INVALID_BINARY_STRING), function () {
       MacAddress::hex("\x12\x3A\xD6\x4B\xC5\xEF\x79");
     });
   }
@@ -203,31 +194,31 @@ OUTPUT
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithABlankDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_BLANK), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::DELIMITER_BLANK), function () {
       MacAddress::format('123Ad64bC5eF', '');
     });
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAMultipleCharacterDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::DELIMITER_TOO_LONG), function () {
       MacAddress::format('123Ad64bC5eF', '::');
     });
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAWhitespaceDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::DELIMITER_WHITESPACE), function () {
       MacAddress::format('123Ad64bC5eF', ' ');
     });
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithANumericDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
       MacAddress::format('123Ad64bC5eF', '9');
     });
   }
 
   public function testShouldThrowAnExceptionWhenTryingToOutputAFormattedMacAddressFromAHexStringWithAnAlphabeticDelimiter() {
-    $this->tester->expectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
+    $this->compatibilityExpectException(MacAddressException::new(MacAddressException::DELIMITER_ALPHANUMERIC), function () {
       MacAddress::format('123Ad64bC5eF', 'x');
     });
   }
