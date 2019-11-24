@@ -19,10 +19,12 @@ class MacAddressSeam extends MacAddress {
   }
 
   protected static function random_short_int() {
+    parent::random_short_int();
     return RandomSeam::random_short_int();
   }
 
   protected static function random_hex_bytes($count) {
+    parent::random_hex_bytes($count);
     return RandomSeam::random_hex_bytes($count);
   }
 
@@ -40,5 +42,32 @@ class MacAddressSeam extends MacAddress {
       $system_mac_addresses = parent::system_mac_addresses();
     }
     return $system_mac_addresses;
+  }
+
+  protected static function system_output_lines(string $operating_system_type) {
+    return parent::system_output_lines($operating_system_type);
+  }
+
+  protected static function operating_system() {
+    return parent::operating_system();
+  }
+
+  protected static function os_name() {
+    return parent::os_name();
+  }
+
+  protected static function validate_delimiter($delimiter): void {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    parent::validate_delimiter($delimiter);
+  }
+
+  protected static function validate_hex(string $mac_address) {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    parent::validate_hex($mac_address);
+  }
+
+  protected static function validate_binary($mac_address): void {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    parent::validate_binary($mac_address);
   }
 }
