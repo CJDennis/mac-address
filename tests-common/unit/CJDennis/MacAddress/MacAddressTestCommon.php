@@ -17,18 +17,18 @@ trait MacAddressTestCommon {
   // tests
   public function testShouldGetAMacAddressFromTheSystem() {
     $mac_address_hex = MacAddressSeam::mac_address_hex();
-    $this->assertRegExp('/^[\dA-F]{2}(?:-[\dA-F]{2}){5}$/i', $mac_address_hex);
+    $this->assertRegExp('/^[\dA-F]{2}(?:[-:][\dA-F]{2}){5}$/i', $mac_address_hex);
   }
 
   public function testShouldGetAFakeMacAddress() {
     $fake_mac_address_hex = MacAddress::fake_mac_address_hex();
-    $this->assertRegExp('/^[\da-f][26ae](?:-[\da-f]{2}){5}$/i', $fake_mac_address_hex);
+    $this->assertRegExp('/^[\da-f][26ae](?:[-:][\da-f]{2}){5}$/i', $fake_mac_address_hex);
   }
 
   public function testShouldGetAFakeMacAddressWhenTheSystemHasNone() {
     MacAddressSeam::set_override_system();
     $mac_address_hex = MacAddressSeam::mac_address_hex();
-    $this->assertRegExp('/^[\da-f][26ae](?:-[\da-f]{2}){5}$/i', $mac_address_hex);
+    $this->assertRegExp('/^[\da-f][26ae](?:[-:][\da-f]{2}){5}$/i', $mac_address_hex);
   }
 
   public function testShouldGetAWindowsMacAddressFromTheMocker() {
